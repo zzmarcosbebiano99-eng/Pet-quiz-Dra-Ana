@@ -1,0 +1,110 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f4f8;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+h1 {
+  margin: 0 0 10px 0;
+  font-size: 2em;
+}
+
+/* --- Botões gerais --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+  background: linear-gradient(135deg, #6b8ce3, #88d9d9);
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* --- Botão de voltar --- */
+.btn.back {
+  background-color: #f44336;
+}
+
+.btn.back:hover {
+  background-color: #d32f2f;
+}
+
+/* --- Container do quiz --- */
+#quiz-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 15px;
+  text-align: left;
+}
+
+/* --- Cada pergunta --- */
+.question-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.question-card p {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.options label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.options input[type="radio"] {
+  margin-right: 8px;
+}
+
+.explanation {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+}
+
+/* --- Botão Review --- */
+#review-btn {
+  margin: 20px auto;
+  display: block;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 500px) {
+  .question-card {
+    padding: 15px;
+  }
+  .btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
