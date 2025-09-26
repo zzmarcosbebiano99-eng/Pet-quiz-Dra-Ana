@@ -1,60 +1,94 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  background: #f0f4f8; /* fundo suave e moderno */
+  color: #333;
   text-align: center;
 }
 
-header {
-  background: #ffb347;
-  padding: 20px;
-  color: white;
-  font-size: 20px;
+h1 {
+  margin-top: 30px;
+  font-size: 2.5em;
+  color: #444;
 }
 
-/* Container dos botões em 2 colunas */
+p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* --- Container dos botões --- */
 .menu {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-  gap: 20px;
-  justify-items: center;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* responsivo */
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* Estilo base dos botões */
+/* --- Estilo base dos botões --- */
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 15px 25px;
+  padding: 18px 25px;
   font-size: 18px;
   font-weight: bold;
   color: #fff;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
   text-decoration: none;
+  border-radius: 15px;
   transition: all 0.3s ease;
-  width: 100%;
-  max-width: 300px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  background: linear-gradient(135deg, #6b8ce3, #88d9d9);
 }
 
-/* Efeito hover */
+/* --- Hover efeito suave --- */
 .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* Cores diferentes por área */
-.btn.anesthesia { background-color: #4CAF50; }      /* verde */
-.btn.surgery { background-color: #2196F3; }        /* azul */
-.btn.diagnostic { background-color: #9C27B0; }     /* roxo */
-.btn.emergency { background-color: #FF5722; }      /* laranja */
-.btn.general { background-color: #607D8B; }        /* cinza */
-.btn.internal { background-color: #795548; }       /* marrom */
-.btn.neurology { background-color: #3F51B5; }      /* azul escuro */
-.btn.ophthalmology { background-color: #00BCD4; }  /* ciano */
-.btn.oncology { background-color: #E91E63; }       /* rosa */
-.btn.reproduction { background-color: #8BC34A; }   /* verde claro */
+/* --- Botão de voltar --- */
+.btn.back {
+  background-color: #f44336;
+  max-width: 140px;
+  margin-top: 40px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.btn.back:hover {
+  background-color: #d32f2f;
+}
+
+/* --- Cores personalizadas por área --- */
+.btn.anesthesia { background: linear-gradient(135deg, #4CAF50, #81C784); }
+.btn.surgery { background: linear-gradient(135deg, #2196F3, #64B5F6); }
+.btn.diagnostic { background: linear-gradient(135deg, #9C27B0, #BA68C8); }
+.btn.emergency { background: linear-gradient(135deg, #FF5722, #FF8A65); }
+.btn.general { background: linear-gradient(135deg, #607D8B, #90A4AE); }
+.btn.internal { background: linear-gradient(135deg, #795548, #A1887F); }
+.btn.neurology { background: linear-gradient(135deg, #3F51B5, #7986CB); }
+.btn.ophthalmology { background: linear-gradient(135deg, #00BCD4, #4DD0E1); }
+.btn.oncology { background: linear-gradient(135deg, #E91E63, #F06292); }
+.btn.reproduction { background: linear-gradient(135deg, #8BC34A, #AED581); }
+
+/* --- Emojis maiores dentro do botão --- */
+.btn span.emoji {
+  font-size: 1.5em;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 500px) {
+  .menu {
+    grid-template-columns: 1fr;
+  }
+  .btn {
+    font-size: 16px;
+    padding: 15px 20px;
+  }
+}
