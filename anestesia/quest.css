@@ -167,3 +167,19 @@ header h1 {
     font-size: 0.9em;
   }
 }
+/* Botão Review */
+#review-btn {
+  background-color: #FFB74D; /* laranja suave */
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+#review-btn:hover {
+  background-color: #FFA726; /* laranja mais forte no hover */
+  transform: scale(1.05);
+}
