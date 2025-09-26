@@ -86,7 +86,7 @@ p {
 
 /* --- Botões de questionário --- */
 .btn.quiz {
-  background: linear-gradient(135deg, #FFB74D, #FFA726);
+  background: linear-gradient(135deg, #4CAF50, #81C784);
 }
 
 .btn.quiz:hover {
@@ -192,3 +192,4 @@ p {
     padding: 15px 20px;
   }
 }
+
