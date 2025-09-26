@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐶🐱 Anesthesia Quiz</title>
+<link rel="stylesheet" href="quest.css">
+</head>
+<body>
+  <header>
+    <h1>🐶🐱 Anesthesia Quiz</h1>
+    <button onclick="goBack()" class="btn back">⬅ Back</button>
+  </header>
+
+  <main id="quiz-container">
+    <!-- Questions will be inserted dynamically by script.js -->
+  </main>
+
+  <button id="review-btn" class="btn" disabled>Review</button>
+
+  <script src="script.js"></script>
+  <script>
+    const QUESTIONS = [
+      {
+        question: "What is the most common anesthetic used in cats?",
+        choices: ["Isoflurane", "Propofol", "Ketamine", "Sevoflurane"],
+        correct: 2,
+        explanation: "Ketamine is commonly used in cats for induction of anesthesia."
+      },
+      {
+        question: "Which vital sign must be monitored continuously during anesthesia?",
+        choices: ["Heart rate", "Fur color", "Tail movement", "Sleepiness"],
+        correct: 0,
+        explanation: "Heart rate is a critical vital sign to monitor during anesthesia."
+      },
+      {
+        question: "Which drug is commonly used for analgesia in dogs post-surgery?",
+        choices: ["Aspirin", "Morphine", "Ibuprofen", "Paracetamol"],
+        correct: 1,
+        explanation: "Morphine is widely used for post-operative pain relief in dogs."
+      }
+    ];
+  </script>
+</body>
+</html>
