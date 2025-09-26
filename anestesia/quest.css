@@ -101,6 +101,9 @@ header h1 {
 .options label:hover {
   opacity: 0.8;
 }
+.options label:hover {
+  background-color: rgba(0,0,0,0.05); /* leve escurecimento ao passar mouse */
+  border-color: #ccc;
 
 /* Explicação */
 .explanation {
