@@ -107,6 +107,28 @@ function loadQuiz() {
 
 // Review respostas
 function reviewQuiz() {
+  const unanswered = [];
+  
+  QUESTIONS.forEach((q,index)=>{
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    const card = document.querySelectorAll(".question-card")[index];
+    
+    // Se não respondeu, adiciona ao array
+    if(!selected){
+      unanswered.push(index + 1); // números começam em 1
+      card.style.border = "2px solid #f44336"; // destaca a pergunta
+      card.scrollIntoView({behavior: "smooth", block: "center"});
+    } else {
+      card.style.border = "none"; // remove destaque se respondeu
+    }
+  });
+
+  if(unanswered.length > 0){
+    alert(`As seguintes questões não foram respondidas: ${unanswered.join(", ")}`);
+    return; // não continua para revisar ainda
+  }
+
+  // Se todas respondidas, revisa normalmente
   let correctCount = 0;
   QUESTIONS.forEach((q,index)=>{
     const selected = document.querySelector(`input[name="q${index}"]:checked`);
@@ -128,7 +150,6 @@ function reviewQuiz() {
   const percent = Math.round((correctCount/QUESTIONS.length)*100);
   showProgressBar(percent);
 }
-
 // Barra de progresso e confete
 function showProgressBar(percent){
   const existing = document.getElementById("progress-bar");
