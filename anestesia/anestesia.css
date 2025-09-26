@@ -1,43 +1,94 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  background: #f0f4f8; /* fundo suave e moderno */
+  color: #333;
   text-align: center;
 }
 
-header {
-  background: #4CAF50;
-  padding: 20px;
-  color: white;
-  font-size: 20px;
+h1 {
+  margin-top: 30px;
+  font-size: 2.5em;
+  color: #444;
 }
 
+p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* --- Container dos botões --- */
 .menu {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* responsivo */
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
+/* --- Estilo base dos botões --- */
 .btn {
-  display: inline-block;
-  padding: 15px 25px;
-  background: #ff7f50;
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 25px;
   font-size: 18px;
-  transition: 0.3s;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  background: linear-gradient(135deg, #6b8ce3, #88d9d9);
 }
 
+/* --- Hover efeito suave --- */
 .btn:hover {
-  background: #ff5722;
-  transform: scale(1.05);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-.back {
-  margin-top: 15px;
+/* --- Botão de voltar --- */
+.btn.back {
+  background-color: #f44336;
+  max-width: 140px;
+  margin-top: 40px;
+  display: inline-flex;
+  justify-content: center;
+}
 
-  background: #555;
+.btn.back:hover {
+  background-color: #d32f2f;
+}
+
+/* --- Cores personalizadas por área --- */
+.btn.anesthesia { background: linear-gradient(135deg, #4CAF50, #81C784); }
+.btn.surgery { background: linear-gradient(135deg, #2196F3, #64B5F6); }
+.btn.diagnostic { background: linear-gradient(135deg, #9C27B0, #BA68C8); }
+.btn.emergency { background: linear-gradient(135deg, #FF5722, #FF8A65); }
+.btn.general { background: linear-gradient(135deg, #607D8B, #90A4AE); }
+.btn.internal { background: linear-gradient(135deg, #795548, #A1887F); }
+.btn.neurology { background: linear-gradient(135deg, #3F51B5, #7986CB); }
+.btn.ophthalmology { background: linear-gradient(135deg, #00BCD4, #4DD0E1); }
+.btn.oncology { background: linear-gradient(135deg, #E91E63, #F06292); }
+.btn.reproduction { background: linear-gradient(135deg, #8BC34A, #AED581); }
+
+/* --- Emojis maiores dentro do botão --- */
+.btn span.emoji {
+  font-size: 1.5em;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 500px) {
+  .menu {
+    grid-template-columns: 1fr;
+  }
+  .btn {
+    font-size: 16px;
+    padding: 15px 20px;
+  }
+}
