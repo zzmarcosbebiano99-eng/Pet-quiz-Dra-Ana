@@ -1,4 +1,4 @@
-// Perguntas (10 questões, repetindo algumas para exemplo)
+// Perguntas (10 questões, repetindo para exemplo)
 const QUESTIONS = [
   {
     question: "What is the most common anesthetic used in cats?",
@@ -114,44 +114,47 @@ function reviewQuiz() {
     const selected = document.querySelector(`input[name="q${index}"]:checked`);
     const card = document.querySelectorAll(".question-card")[index];
 
+    // Limpa destaque anterior
+    card.classList.remove("unanswered");
+
     if(!selected){
       unanswered.push(index + 1);
-      card.style.border = "2px solid #f44336";
+      card.classList.add("unanswered"); // adiciona borda vermelha
       card.scrollIntoView({behavior:"smooth", block:"center"});
-    } else {
-      card.style.border = "none";
     }
   });
 
   if(unanswered.length > 0){
     alert(`As seguintes questões não foram respondidas: ${unanswered.join(", ")}`);
-    return; // para aqui até o usuário responder todas
+    return; // interrompe revisão
   }
 
-  // Se todas respondidas, revisar normalmente
+  // Revisão normal
   let correctCount = 0;
   QUESTIONS.forEach((q,index)=>{
     const selected = document.querySelector(`input[name="q${index}"]:checked`);
     const options = document.querySelectorAll(`input[name="q${index}"]`);
-    const explanationDiv = selected.closest(".question-card").querySelector(".explanation");
 
+    const explanationDiv = selected.closest(".question-card").querySelector(".explanation");
     explanationDiv.style.display = "block";
 
     options.forEach(opt=>{
       opt.disabled = true;
-      opt.parentElement.style.backgroundColor = "";
-      if(parseInt(opt.value)===q.correct) opt.parentElement.style.backgroundColor="#d4edda";
+      const label = opt.parentElement;
+      label.classList.remove("correct","incorrect");
+
+      if(parseInt(opt.value)===q.correct) label.classList.add("correct");
+      else if(opt.checked) label.classList.add("incorrect");
     });
 
     if(selected && parseInt(selected.value)===q.correct) correctCount++;
-    else if(selected) selected.parentElement.style.backgroundColor="#f8d7da";
   });
 
   const percent = Math.round((correctCount/QUESTIONS.length)*100);
   showProgressBar(percent);
 }
 
-// Barra de progresso e confete
+// Barra de progresso
 function showProgressBar(percent){
   const existing = document.getElementById("progress-bar");
   if(existing) existing.remove();
@@ -166,24 +169,6 @@ function showProgressBar(percent){
   document.body.appendChild(container);
 
   setTimeout(()=>{ fill.style.transition="width 1s ease-in-out"; fill.style.width=percent+"%"; },50);
-
-  if(percent===100) launchConfetti();
-}
-
-// Confete
-function launchConfetti(){
-  const colors=["#ff0a54","#ff477e","#ff7096","#ff85a1","#fbb1b1","#f9bec7"];
-  const num=150;
-  for(let i=0;i<num;i++){
-    const c=document.createElement("div");
-    c.classList.add("confetti");
-    c.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
-    c.style.left=Math.random()*100+"%";
-    c.style.animationDuration=(2+Math.random()*3)+"s";
-    c.style.width=c.style.height=8+Math.random()*5+"px";
-    document.body.appendChild(c);
-    c.addEventListener("animationend",()=>c.remove());
-  }
 }
 
 // Voltar
